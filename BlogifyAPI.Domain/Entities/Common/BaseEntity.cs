@@ -13,6 +13,7 @@ namespace BlogifyAPI.Domain.Entities.Common
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime? ModifiedDate { get; set; }
         public DateTime? DeletedDate { get; set; }
-        public EntityStatus Status { get; set; } // Aktif, Pasif, Silinmiş...
+        public EntityStatus Status { get; set; } = EntityStatus.Active; // Aktif, Pasif, Silinmiş..
+        public bool IsDeleted { get; set; } = false;
     }
 }
