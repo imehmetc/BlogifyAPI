@@ -10,10 +10,7 @@ namespace BlogifyAPI.Domain.Entities.Concrete
 {
     public class Comment : BaseEntity
     {
-        public Comment()
-        {
-            
-        }
+        public Comment() { }
 
 		public Comment(Guid postId, Guid userId, string content, bool isApproved)
         {
@@ -23,21 +20,13 @@ namespace BlogifyAPI.Domain.Entities.Concrete
 			IsApproved = isApproved;
 		}
 
-		[Required]
 		public required Guid PostId { get; set; }
-
-		[Required]
 		public required Guid UserId { get; set; }
-
-		[Required]
-		[StringLength(1000, MinimumLength = 5, ErrorMessage = "Content must be between 5 and 1000 characters.")]
 		public required string Content { get; set; }
-
-		[Required]
 		public required bool IsApproved { get; set; }
 
         // Navigation Props
-        public Post Post { get; set; }
-        public User User { get; set; }
+        public virtual Post Post { get; set; }
+        public virtual User User { get; set; }
     }
 }

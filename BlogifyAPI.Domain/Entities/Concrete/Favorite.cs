@@ -10,25 +10,18 @@ namespace BlogifyAPI.Domain.Entities.Concrete
 {
     public class Favorite : BaseEntity
     {
-        public Favorite()
-        {
-            
-        }
+        public Favorite() { }
 
 		public Favorite(Guid postId, Guid favoritedUserId)
         {
 			PostId = postId;
 			FavoritedUserId = favoritedUserId;
 		}
-
-		[Required]
 		public required Guid PostId { get; set; }
-
-		[Required]
 		public required Guid FavoritedUserId { get; set; }
 
         // Navigation Props
-        public Post Post { get; set; }
-        public User User { get; set; }
+        public virtual Post Post { get; set; }
+        public virtual User User { get; set; }
     }
 }
